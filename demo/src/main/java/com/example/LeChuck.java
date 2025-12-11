@@ -6,14 +6,17 @@ public class LeChuck extends Pirata {
     private String insultoEspecial;
     private String nomPropi;
     private int vidaPropia;
-    private String insultosLeChuck;
-    private String respuestasLeChuck;
+    
 
     public LeChuck(String nom, int vida, String[] nomPiratas, int vidaDeFuera, String[] insultosDeFuera, String[] respostesDeFuera) {
         super(nom, vida, nomPiratas, vidaDeFuera, insultosDeFuera, respostesDeFuera);
         this.nomPropi = nom;
-        this.vidaPropia = vida;
-        this.insultosLeChuck = insultosDeFuera[i];
-        this.respuestasLeChuck = respostesDeFuera[i];
+        this.vidaPropia = vida * 2;
+        
+
+    }
+
+    public int getVida() {
+        return this.vidaPropia;
     }
 }

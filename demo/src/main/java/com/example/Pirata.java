@@ -35,8 +35,8 @@ public class Pirata extends Personatge implements Fight, Speak {
         this.nom = nomPiratas[rd.nextInt(nomPiratas.length)]; // este nombre viene de fuera tambien como los insultos y respuestas
         this.vida = rd.nextInt(1, 4); // Vida Aleatoria 1 y 3
 
-        this.insultosDeFuera = insultos; //Array de insultos (main) -> variable de array pasada en el parametro del constructor (insultosDeFuera)
-        this.respostesDeFuera = respostes; // igual que lo insultos
+        this.insultos = insultosDeFuera; //Array de insultos (main) -> variable de array pasada en el parametro del constructor (insultosDeFuera)
+        this.respostes = respostesDeFuera; // igual que lo insultos
 
         // Tirar el dado, y coger respuesta/insulto aleatorio
 
