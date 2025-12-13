@@ -3,7 +3,9 @@ package com.example;
 public class LeChuck extends Pirata {
     
     // Atributos exclusivos de LeChuck
-    private String insultoEspecial;
+    private String[] insultosLeChuck = new String[4];
+    private String[] respostesLeChuck = new String[4];
+
     private String nomPropi;
     private int vidaPropia;
     
@@ -12,11 +14,28 @@ public class LeChuck extends Pirata {
         super(nom, vida, nomPiratas, vidaDeFuera, insultosDeFuera, respostesDeFuera);
         this.nomPropi = nom;
         this.vidaPropia = vida * 2;
-        
+        for (int i = 0; i < insultosPropis.length; i++) { // Me rellena los insultos de LeChuck con los que saca el pirata normal
+            this.insultosLeChuck[i] = insultosPropis[i]; // izquierda = destino, derecha = origen.
+            this.respostesLeChuck[i] = respostesPropies[i];
+        }
+        this.insultosLeChuck[4] = insultosDeFuera[9];
+        this.respostesLeChuck[4] = respostesDeFuera[9];
 
     }
-
+    public String setNom(String nom) {
+        this.nom = "LeChuck";
+        return this.nom;
+    }
     public int getVida() {
         return this.vidaPropia;
+    }
+
+    // Metodos
+    @Override
+    public void insultar() {
+        // Coger aleatorio del array de insultos propios.
+        indiceElegido = rd.nextInt(insultosLeChuck.length);
+        insultoElegido = insultosLeChuck[indiceElegido];
+        System.out.println(insultoElegido);
     }
 }

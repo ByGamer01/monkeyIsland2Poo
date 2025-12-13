@@ -26,7 +26,7 @@ public class Illa {
         piratas = new Pirata[numeroPiratas]; // contenedor vacío con el tamaño correcto.
 
         for (int numeroPiratasHechos = 0; numeroPiratasHechos < numeroPiratas; numeroPiratasHechos++) {
-            piratas[numeroPiratasHechos] = new Pirata(nomPiratas, 0, this.insultos, this.respostes);
+            piratas[numeroPiratasHechos] = new Pirata("nom", 5, nomPiratas, 0, this.insultos, this.respostes);
 
             // Crea piratas nuevos a medida que la variable de piratasHechos aumenta,
             // mediante la clase pirata (variable privada) [con el indice (variable de este

@@ -19,9 +19,9 @@ public class Main {
                 "¡A pulpos he vencido con estos fuertes brazos!.",
                 "Veo que en tu boca asoma una mueca de agonía.",
                 "Arrrgh... Mi bisabuela de 98 años tiene mejores biceps que tu.",
-                "Uuggh... ¡Eres el bicho mas feo que en mi vida haya encontrado!..."
+                "Uuggh... ¡Eres el bicho mas feo que en mi vida haya encontrado!...",
+                "Luchas como un ganadero" // Insulto de LeChuck
         };
-
         String[] respostes = {
                 "Grrr... Al ver el tamaño de tu barriga, diríase que te los has comido.",
                 "Aarrgh... Lástima que no tengas ninguno en los brazos.",
@@ -31,7 +31,8 @@ public class Main {
                 "Tu poder sin duda doblega a todo invertebrado.",
                 "Es que tu toquecito me hace reír de cosquillas.",
                 "Ugh... si pero tanto ella como yo tenemos mejor control de la vejiga que tú.",
-                "Me asombra que nunca a tu mujer hayas mirado."
+                "Me asombra que nunca a tu mujer hayas mirado.",
+                "Qué apropiado, tú peleas como una vaca" // Respuesta de LeChuck
         };
         String[] nomPiratas = {
                 "Blackbeard",
@@ -47,6 +48,7 @@ public class Main {
         int index;
         boolean pirataViu;
         boolean heroeViu;
+        String respostaHeroi;
         System.out.println("\nDeep in the Caribbean\n");
         System.out.println();
         System.out.println("----------------------- ╬ MONKEY ISLAND ╬ --------------------");
@@ -71,7 +73,11 @@ public class Main {
 
         heroeViu = heroi.getViu();
         index = 0;
-        while (index < isla.getNumeroPiratas() && heroeViu) { // Condicion principal: mientras queden piratas y el heroe este vivo
+        pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
+        
+        }
+}
+    /*     while (index < isla.getNumeroPiratas() && heroeViu) { // Condicion principal: mientras queden piratas y el heroe este vivo
             pirata = isla.vullUnPirata(index); // Cogemos el pirata de la isla segun el index
             pirataViu = pirata.getViu(); // Actualizamos la variable de si esta vivo el pirata (ya que fuera lo cogemos tambien)
 
@@ -83,7 +89,7 @@ public class Main {
                 System.out.println(); // espacio para que se vea mas bonito :D
                 // Aquí el héroe debe responder despues de la impresion del insulto se muestran
                 // todas las respuestas
-                String respostaHeroi = heroi.defensar(); // cogemos la respuesta del usuario y la comparamos con la respuesta propia del insulto propio del pirata
+                respostaHeroi = heroi.defensar(); // cogemos la respuesta del usuario y la comparamos con la respuesta propia del insulto propio del pirata
 
                 // Comprobamos si la respuesta del usuario es correcta o no
                 if (pirata.replica(respostaHeroi)) {
@@ -110,7 +116,7 @@ public class Main {
         }
         
     }
-}
+} */
 /*
  * Es crea un objecte Heroi i un objecte Illa.
  * 
@@ -131,4 +137,5 @@ public class Main {
  * 
  * Si el Heroe arriba al final de l’Illa, guanya. Si mor antes, perd.
  * 
- */
+ */ 
+

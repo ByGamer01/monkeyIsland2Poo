@@ -40,23 +40,23 @@ public class Pirata extends Personatge implements Fight, Speak {
 
         // Tirar el dado, y coger respuesta/insulto aleatorio
 
-        indiceAleatorio = rd.nextInt(insultosDeFuera.length);
+        indiceAleatorio = rd.nextInt(insultosDeFuera.length - 1);
         insultosPropis[0] = insultosDeFuera[indiceAleatorio];
         respostesPropies[0] = respostesDeFuera[indiceAleatorio];
 
 
         // Dado 2
-        indiceAleatorio1 = rd.nextInt(insultosDeFuera.length);
+        indiceAleatorio1 = rd.nextInt(insultosDeFuera.length - 1);
         while (indiceAleatorio1 == indiceAleatorio) {
-            indiceAleatorio1 = rd.nextInt(insultosDeFuera.length);
+            indiceAleatorio1 = rd.nextInt(insultosDeFuera.length - 1);
         }
         insultosPropis[1] = insultosDeFuera[indiceAleatorio1];
         respostesPropies[1] = respostesDeFuera[indiceAleatorio1];
 
         // Dado 3
-        indiceAleatorio2 = rd.nextInt(insultosDeFuera.length);
+        indiceAleatorio2 = rd.nextInt(insultosDeFuera.length - 1);
         while (indiceAleatorio2 == indiceAleatorio || indiceAleatorio2 == indiceAleatorio1) {
-            indiceAleatorio2 = rd.nextInt(insultosDeFuera.length);
+            indiceAleatorio2 = rd.nextInt(insultosDeFuera.length - 1);
         }
         insultosPropis[2] = insultosDeFuera[indiceAleatorio2];
         respostesPropies[2] = respostesDeFuera[indiceAleatorio2];

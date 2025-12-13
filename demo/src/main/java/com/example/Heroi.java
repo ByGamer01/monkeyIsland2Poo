@@ -23,7 +23,8 @@ public class Heroi extends Personatge implements Fight, Speak {
 
     // Constructor
     public Heroi(String nom, int vida, String[] respostesDeFuera) {
-        this.nom = nom; 
+        super(nom, vida);
+        this.nom = nom; // izquierda = destino, derecha = origen.
         this.vida = vida;
         viu = true;
 
@@ -49,15 +50,19 @@ public class Heroi extends Personatge implements Fight, Speak {
     }
 
     /*
-     * Los métodos del héroe
-     * 
-     * El héroe SOLO debe tener métodos relacionados con:
-     * 
-     * defenderse (responder insultos)
-     * perder vida y saber si sigue vivo
+     * Mètode defensar:
+     * - En Guybrush tendrá aventatge, como que ja es un pirata experimentat només
+     * l’hi
+     * surten sempre la meitat de les possibles respostes, però no sempre contindrá
+     * la
+     * correcte (es aleatori)
+     * - Na Elaine, es la primera vegada que s’enfronta als pirates, per tant tendrá
+     * totes les
+     * possibles respostes
      */
+
     // Métodos
-    public String defensar() {
+    public void defensar() {
         // Mostrar las respuestas
         System.out.println("Tus posibles respuestas son estas:");
         for (int index = 0; index < respostes.length; index++) {
@@ -66,7 +71,7 @@ public class Heroi extends Personatge implements Fight, Speak {
         // Recoger la respuesta
         System.out.println("Introduce tu respuesta:");
         int numeroElegido = sc.nextInt(); // Almacena temporalmente la opción que el usuario ha escogido
-        return respostes[numeroElegido - 1];
+        respostes[numeroElegido] = respostes[numeroElegido - 1];
         /*
          * Restar 1 para ajustar al índice del array, imagina que la respuesta del
          * // usuario es la 1, la posicion del array es la 0, por lo que al
@@ -81,6 +86,18 @@ public class Heroi extends Personatge implements Fight, Speak {
             viu = false;
         }
         return viu;
+    }
+
+    public void sayHello() {
+
+    }
+
+    public void sayGoodBye() {
+
+    }
+
+    public void insultar() {
+
     }
 }
 
