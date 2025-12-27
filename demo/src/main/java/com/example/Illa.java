@@ -25,13 +25,14 @@ public class Illa {
         numeroPiratas = rd.nextInt(3, 8);
         piratas = new Pirata[numeroPiratas]; // contenedor vacío con el tamaño correcto.
 
-        for (int numeroPiratasHechos = 0; numeroPiratasHechos < numeroPiratas; numeroPiratasHechos++) {
+        for (int numeroPiratasHechos = 0; numeroPiratasHechos < numeroPiratas - 1; numeroPiratasHechos++) {
             piratas[numeroPiratasHechos] = new Pirata("nom", 5, nomPiratas, 0, this.insultos, this.respostes);
 
             // Crea piratas nuevos a medida que la variable de piratasHechos aumenta,
             // mediante la clase pirata (variable privada) [con el indice (variable de este
             // for)] y le pasamos los parametros de la clase Pirata
         }
+        piratas[numeroPiratas - 1] = new LeChuck("LeChuck", 5, nomPiratas, 0, this.insultos, this.respostes);
     }
 
     // Getter / Setter

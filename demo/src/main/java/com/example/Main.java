@@ -11,7 +11,7 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
         String[] insultos = {
-                "Ugh.. Hoy con brazo poderoso a doce hombres he vencido.",
+                "Ugh.. Hoy con brazo poderoso a doce hombres he vencido.", // 0
                 "Tengo músculos en lugares que no conoces ni de nombre.",
                 "Ríndete ahora o te aplastaré como a un tomate.",
                 "Aargh.. Mi fuerza asombrosa te romperá el cúbito en mil pedazos.",
@@ -20,10 +20,10 @@ public class Main {
                 "Veo que en tu boca asoma una mueca de agonía.",
                 "Arrrgh... Mi bisabuela de 98 años tiene mejores biceps que tu.",
                 "Uuggh... ¡Eres el bicho mas feo que en mi vida haya encontrado!...",
-                "Luchas como un ganadero" // Insulto de LeChuck
+                "Luchas como un ganadero" // Insulto de LeChuck // 9
         };
         String[] respostes = {
-                "Grrr... Al ver el tamaño de tu barriga, diríase que te los has comido.",
+                "Grrr... Al ver el tamaño de tu barriga, diríase que te los has comido.", // 0
                 "Aarrgh... Lástima que no tengas ninguno en los brazos.",
                 "Me rendiría si eso me evitara tener que mirarte.",
                 "Grrrr... No me imaginaba que supieras contar hasta tan alto.",
@@ -32,7 +32,7 @@ public class Main {
                 "Es que tu toquecito me hace reír de cosquillas.",
                 "Ugh... si pero tanto ella como yo tenemos mejor control de la vejiga que tú.",
                 "Me asombra que nunca a tu mujer hayas mirado.",
-                "Qué apropiado, tú peleas como una vaca" // Respuesta de LeChuck
+                "Qué apropiado, tú peleas como una vaca" // Respuesta de LeChuck // 9
         };
         String[] nomPiratas = {
                 "Blackbeard",
@@ -73,8 +73,10 @@ public class Main {
 
         heroeViu = heroi.getViu();
         index = 0;
-        pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
-        
+     //   pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
+        Heroi heroi1 = new Guybrush("Guybrush", 10, respostes);
+        heroi1.defensar();
+
         }
 }
     /*     while (index < isla.getNumeroPiratas() && heroeViu) { // Condicion principal: mientras queden piratas y el heroe este vivo

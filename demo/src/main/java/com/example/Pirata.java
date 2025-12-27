@@ -100,11 +100,11 @@ public class Pirata extends Personatge implements Fight, Speak {
     }
 
     public void sayHello() {
-
+        System.out.println("Eres feo y apestas a ron! Ja ja ja!");
     }
     
     public void sayGoodBye() {
-
+        System.out.println("¡Hasta la próxima, pirata cobarde!");
     }
 
    

@@ -89,11 +89,11 @@ public class Heroi extends Personatge implements Fight, Speak {
     }
 
     public void sayHello() {
-
+        System.out.println("Hola soy Elaine, la governadora. Encantada de conocerte!");
     }
 
     public void sayGoodBye() {
-
+        System.out.println("Adiós, espero verte pronto por la isla.");
     }
 
     public void insultar() {
