@@ -33,7 +33,9 @@ public class Illa {
             // for)] y le pasamos los parametros de la clase Pirata
         }
         piratas[numeroPiratas - 1] = new LeChuck("LeChuck", 5, nomPiratas, 0, this.insultos, this.respostes);
+        // El último pirata siempre es LeChuck
     }
+
 
     // Getter / Setter
 

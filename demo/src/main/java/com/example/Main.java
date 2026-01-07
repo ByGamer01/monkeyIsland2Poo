@@ -4,10 +4,8 @@
 // Game: The Secret of the Monkey Island
 // MonkeyIsland with POO ("Programacion orientada a objetos")
 
-
-
 package com.example;
-
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         String[] insultos = {
@@ -49,22 +47,39 @@ public class Main {
         boolean pirataViu;
         boolean heroeViu;
         String respostaHeroi;
+        int eleccionHeroi;
         System.out.println("\nDeep in the Caribbean\n");
         System.out.println();
         System.out.println("----------------------- ╬ MONKEY ISLAND ╬ --------------------");
         System.out.println();
         System.out.println(
                 "\n\n Ø ¡Bienvenido Aventurero! Ø\n\n ¤ El juego consiste en sobrevivir a los insultos de los piratas. \n Responde correctamente para ganar puntos y avanzar de ronda. \n Pero cuidado, si fallas perderás vidas. ¤ \n\n £ Si te quedas sin vidas, solo te esperará la muerte, piratilla! £ ");
-
-        Heroi heroi = new Heroi("Gumbruh", 10, respostes);
+        Scanner sc = new Scanner(System.in);
+        Heroi heroi = new Heroi("", 10, respostes);
         Illa isla = new Illa("Cuba", nomPiratas, insultos, respostes);
+        
+        System.out.println("Antes de comenzar, ¿qué heroe te gustaría ser?\n 1.) Elaine\n 2.) Guybrush\n ");
+        eleccionHeroi = sc.nextInt();
+
+        switch (eleccionHeroi) { // Depende de lo que elige el usuario, se creara un heroe u otro.
+            case 1:
+                heroi = new Heroi("Elaine", 1, respostes);
+                break;
+        
+            case 2:
+                heroi = new Guybrush("Guybrush", 1, respostes);
+                break;
+        }
+
+        heroi.sayHello(); // El heroe nos saluda! :D 
 
         System.out.println("\n\nBienvenido a la isla de los Piratas: " + isla.getNom() + "");
 
         System.out.println("\n\nLucharás contra: " + isla.getNumeroPiratas() + " piratas.\n"
-                + "\nCada uno tendra entre 1 y 3 vidas." + "\nGanas al derrotar todos los piratas de la isla!"
-                + "\n\n▓Buena suerte, piratilla! ▓");
+        + "\nCada uno tendra entre 1 y 3 vidas." + "\nGanas al derrotar todos los piratas de la isla!"
+        + "\n\n▓Buena suerte, piratilla! ▓");
 
+        
         System.out.println("Tu nombre es: " + heroi.getNom() + "\n");
 
         System.out.println("¡Prepárate para enfrentarte al primer pirata!\n");
@@ -73,28 +88,24 @@ public class Main {
 
         heroeViu = heroi.getViu();
         index = 0;
-     //   pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
-        Heroi heroi1 = new Guybrush("Guybrush", 10, respostes);
-        heroi1.defensar();
+        pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
+        pirata = new LeChuck("LeChuck", 1, nomPiratas, index, insultos, respostes);
 
-        }
-}
-    /*     while (index < isla.getNumeroPiratas() && heroeViu) { // Condicion principal: mientras queden piratas y el heroe este vivo
+        
+
+        while (index < isla.getNumeroPiratas() && heroeViu) { // Condicion principal: mientras queden piratas y el heroe este vivo
             pirata = isla.vullUnPirata(index); // Cogemos el pirata de la isla segun el index
             pirataViu = pirata.getViu(); // Actualizamos la variable de si esta vivo el pirata (ya que fuera lo cogemos tambien)
-
+            pirata.sayHello();
             while (pirataViu && heroeViu) { // Le damos una pequeña intro del pirata, al jugador
                 System.out.println("Te estás enfrentando al pirata: " + pirata.getNom());
                 heroeViu = heroi.getViu(); // Actualizamos el dato de si esta vivo el jugador
-                // metodo insultar
                 pirata.insultar();
-                System.out.println(); // espacio para que se vea mas bonito :D
-                // Aquí el héroe debe responder despues de la impresion del insulto se muestran
-                // todas las respuestas
-                respostaHeroi = heroi.defensar(); // cogemos la respuesta del usuario y la comparamos con la respuesta propia del insulto propio del pirata
-
+                // Aquí el héroe debe responder despues de la impresion del insulto se muestran todas las respuestas
+                // cogemos la respuesta del usuario y la comparamos con la respuesta propia del insulto propio del pirata
+                heroi.defensar();
                 // Comprobamos si la respuesta del usuario es correcta o no
-                if (pirata.replica(respostaHeroi)) {
+                if (pirata.replica()) {
                     pirata.vida(); // Vida Jugador
                     System.out.println("Has acertado! Al pirata le quedan " + pirata.getVida() + " vidas.");
                 } else {
@@ -102,9 +113,11 @@ public class Main {
                     System.out.println("Has fallado! Te quedan " + heroi.getVida() + " vidas.");
                 }
                 if (heroi.getVida() == 0) {
+                    heroi.sayGoodBye();
                     System.out.println("¡Has sido derrotado, piratilla! Has muerto.");
                     heroeViu = false;
                 } else if (pirata.getVida() == 0) {
+                    pirata.sayGoodBye();
                     pirataViu = false;
                 }
             }
@@ -116,9 +129,9 @@ public class Main {
             System.out.println("Derrotaste a: " + isla.getNumeroPiratas() + " piratas.");
             System.out.println("Te quedaron: " + heroi.getVida() + " vidas restantes.");
         }
-        
+
     }
-} */
+}
 /*
  * Es crea un objecte Heroi i un objecte Illa.
  * 
@@ -139,5 +152,4 @@ public class Main {
  * 
  * Si el Heroe arriba al final de l’Illa, guanya. Si mor antes, perd.
  * 
- */ 
-
+ */
