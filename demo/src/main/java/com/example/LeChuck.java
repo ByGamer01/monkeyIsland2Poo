@@ -20,8 +20,8 @@ public class LeChuck extends Pirata {
             this.insultosLeChuck[i] = insultosPropis[i]; // izquierda = destino, derecha = origen.
             this.respostesLeChuck[i] = respostesPropies[i];
         }
-        this.insultosLeChuck[4] = insultosDeFuera[9];
-        this.respostesLeChuck[4] = respostesDeFuera[9];
+        this.insultosLeChuck[3] = insultosDeFuera[9];
+        this.respostesLeChuck[3] = respostesDeFuera[9];
 
     }
 

@@ -63,11 +63,11 @@ public class Main {
 
         switch (eleccionHeroi) { // Depende de lo que elige el usuario, se creara un heroe u otro.
             case 1:
-                heroi = new Heroi("Elaine", 1, respostes);
+                heroi = new Heroi("Elaine", 10, respostes);
                 break;
         
             case 2:
-                heroi = new Guybrush("Guybrush", 1, respostes);
+                heroi = new Guybrush("Guybrush", 10, respostes);
                 break;
         }
 
@@ -88,31 +88,39 @@ public class Main {
 
         heroeViu = heroi.getViu();
         index = 0;
-        pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
-        pirata = new LeChuck("LeChuck", 1, nomPiratas, index, insultos, respostes);
+
+        // pirata = new Pirata("nom", 1, nomPiratas, index, insultos, respostes);
+        // pirata = new LeChuck("LeChuck", 1, nomPiratas, index, insultos, respostes);
 
         
 
         while (index < isla.getNumeroPiratas() && heroeViu) { // Condicion principal: mientras queden piratas y el heroe este vivo
             pirata = isla.vullUnPirata(index); // Cogemos el pirata de la isla segun el index
             pirataViu = pirata.getViu(); // Actualizamos la variable de si esta vivo el pirata (ya que fuera lo cogemos tambien)
-            pirata.sayHello();
             while (pirataViu && heroeViu) { // Le damos una pequeña intro del pirata, al jugador
                 System.out.println("Te estás enfrentando al pirata: " + pirata.getNom());
+
+                pirata.sayHello(); // Pirata nos saluda
+
+                System.out.println(); // salto de linea
+
                 heroeViu = heroi.getViu(); // Actualizamos el dato de si esta vivo el jugador
-                pirata.insultar();
+
+                pirata.insultar(); // Pirata Insulta
+
                 // Aquí el héroe debe responder despues de la impresion del insulto se muestran todas las respuestas
                 // cogemos la respuesta del usuario y la comparamos con la respuesta propia del insulto propio del pirata
                 heroi.defensar();
+
                 // Comprobamos si la respuesta del usuario es correcta o no
-                if (pirata.replica()) {
+                if (pirata.replica(heroi.getRespuestaHeroi())) { // Replica lo que hace es comparar si el string de respuesta es igual a la respuesta a su insulto, por lo que el metodo de defensar de heroi antes era string, ahora al ser void, hacemos que tenga una variable dentro de el que sea String (respuestaHeroi) y mediante un getter se lo pasamos de parametro al pirata.
                     pirata.vida(); // Vida Jugador
                     System.out.println("Has acertado! Al pirata le quedan " + pirata.getVida() + " vidas.");
                 } else {
                     heroi.vida();
                     System.out.println("Has fallado! Te quedan " + heroi.getVida() + " vidas.");
                 }
-                if (heroi.getVida() == 0) {
+                if (heroi.getVida() <= 0) {
                     heroi.sayGoodBye();
                     System.out.println("¡Has sido derrotado, piratilla! Has muerto.");
                     heroeViu = false;

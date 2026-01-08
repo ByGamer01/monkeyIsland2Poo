@@ -13,7 +13,6 @@ public class Guybrush extends Heroi {
     private int numeroRespuesta;
     private int mitad;
     private int indice;
-    protected String respuestaElegida;
 
     public Guybrush(String nom, int vida, String[] respostesDeFuera) {
         super(nom, vida, respostesDeFuera);
@@ -55,8 +54,8 @@ public class Guybrush extends Heroi {
         // usuario escribe 1 el insulto estaria en posicion 0, resultando en que
         // posicion de la respuesta deberia de ser 0.
 
-        respuestaElegida = mitadRespuestas[numeroElegido]; // Privacidad para todo el paquete, 
-        // ya que esta respuesta la tendremos que comprar luego.
+        respuestaHeroi = mitadRespuestas[numeroElegido]; // Privacidad para todo el paquete, 
+
 
         /*
          * Restar 1 para ajustar al índice del array, imagina que la respuesta del
@@ -64,11 +63,14 @@ public class Guybrush extends Heroi {
          * numeroElegido (respuesta del usuario) se le resta 1 -> 1 - 1 = 0
          */
     }
-
+    @Override
+    public int getVida() {
+        return this.vida;
+    }
     @Override
     public boolean vida() {
         this.vida = this.vida - 2; // Esta es la parte que cambia respecto al padre. Guybrush pierde dos vidas
-        if (this.vida == 0) { // si la vida es 0, jugador = muerto
+        if (this.vida <= 0) { // si la vida es 0, jugador = muerto
             viu = false;
         }
         return viu;

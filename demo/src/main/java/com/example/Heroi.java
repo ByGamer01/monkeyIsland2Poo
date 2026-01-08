@@ -18,6 +18,7 @@ public class Heroi extends Personatge implements Fight, Speak {
     // Solo hay un heroe, es estatico. (no hay varios que necesiten respuestas
     // personalizadas)
     private String[] respostes;
+    protected String respuestaHeroi;
 
     Scanner sc = new Scanner(System.in);
 
@@ -35,6 +36,10 @@ public class Heroi extends Personatge implements Fight, Speak {
 
     public String getNom() {
         return nom;
+    }
+
+    public String getRespuestaHeroi() {
+        return respuestaHeroi;
     }
 
     public int getVida() {
@@ -71,7 +76,7 @@ public class Heroi extends Personatge implements Fight, Speak {
         // Recoger la respuesta
         System.out.println("Introduce tu respuesta:");
         int numeroElegido = sc.nextInt(); // Almacena temporalmente la opción que el usuario ha escogido
-        respostes[numeroElegido] = respostes[numeroElegido - 1];
+        respuestaHeroi = respostes[numeroElegido - 1];
         /*
          * Restar 1 para ajustar al índice del array, imagina que la respuesta del
          * // usuario es la 1, la posicion del array es la 0, por lo que al
